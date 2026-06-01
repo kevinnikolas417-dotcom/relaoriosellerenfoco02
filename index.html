@@ -12,19 +12,13 @@
       --text: #111827;
       --muted: #6b7280;
       --border: #e5e7eb;
-
       --blue-dark: #071b3a;
       --blue-dark-2: #0b254d;
       --orange: #f97316;
       --orange-dark: #ea580c;
       --orange-soft: #fff3e8;
-
       --success-bg: #dcfce7;
       --success-text: #166534;
-
-      --warning-bg: #fef3c7;
-      --warning-text: #92400e;
-
       --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
       --radius: 22px;
     }
@@ -54,8 +48,6 @@
     .hidden {
       display: none !important;
     }
-
-    /* LOGIN */
 
     .login-screen {
       min-height: 100vh;
@@ -191,11 +183,6 @@
       border: 1px solid var(--border);
     }
 
-    .btn-soft {
-      background: var(--orange-soft);
-      color: #c2410c;
-    }
-
     .login-button {
       width: 100%;
       margin-top: 22px;
@@ -212,8 +199,6 @@
       color: var(--muted);
       line-height: 1.6;
     }
-
-    /* APP */
 
     .app {
       display: none;
@@ -407,6 +392,13 @@
       overflow: hidden;
       border: 1px solid rgba(229, 231, 235, 0.9);
       border-top: 5px solid var(--orange);
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .company-block:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.12);
     }
 
     .company-head {
@@ -470,11 +462,6 @@
       color: #c2410c;
     }
 
-    .pill.yellow {
-      background: var(--warning-bg);
-      color: var(--warning-text);
-    }
-
     .company-summary {
       padding: 20px 24px;
       display: grid;
@@ -504,45 +491,31 @@
       color: var(--blue-dark);
     }
 
-    .campaigns {
-      padding: 22px 24px 24px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .campaign-card {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 16px;
-      background: #fff;
-      display: grid;
-      grid-template-columns: 1.7fr repeat(5, 0.7fr);
-      gap: 12px;
+    .company-footer {
+      padding: 18px 24px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
-    .campaign-card .name {
+    .company-footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .link-campaigns {
+      color: #c2410c;
+      background: var(--orange-soft);
+      padding: 11px 14px;
+      border-radius: 14px;
       font-weight: 950;
-      line-height: 1.35;
-    }
-
-    .campaign-card .objective {
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .metric small {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 900;
-      margin-bottom: 4px;
-    }
-
-    .metric strong {
-      font-size: 14px;
-      color: var(--blue-dark);
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .section {
@@ -564,6 +537,101 @@
       color: var(--muted);
       margin: 0 0 18px;
       line-height: 1.5;
+    }
+
+    .campaigns-page {
+      display: none;
+    }
+
+    .campaigns-page.active {
+      display: block;
+    }
+
+    .back-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .campaign-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: #f8fafc;
+      font-weight: 950;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .campaign-name {
+      font-weight: 950;
+      color: var(--blue-dark);
+      line-height: 1.35;
+      min-width: 260px;
+    }
+
+    .campaign-objective {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .result-dashboard {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(110px, 1fr));
+      gap: 10px;
+      min-width: 680px;
+    }
+
+    .result-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .result-box span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      margin-bottom: 5px;
+    }
+
+    .result-box strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 15px;
     }
 
     .explain-grid {
@@ -593,38 +661,6 @@
       font-size: 14px;
     }
 
-    .permissions {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    th,
-    td {
-      padding: 14px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-    }
-
-    th {
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      background: #f8fafc;
-    }
-
-    tr:last-child td {
-      border-bottom: 0;
-    }
-
     @media (max-width: 1100px) {
       .login-screen {
         grid-template-columns: 1fr;
@@ -648,10 +684,6 @@
       .explain-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .campaign-card {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
     @media (max-width: 650px) {
@@ -665,13 +697,17 @@
 
       .stats,
       .company-summary,
-      .explain-grid,
-      .campaign-card {
+      .explain-grid {
         grid-template-columns: 1fr;
       }
 
       .company-head {
         flex-direction: column;
+      }
+
+      .result-dashboard {
+        grid-template-columns: 1fr;
+        min-width: 0;
       }
     }
 
@@ -679,7 +715,8 @@
       .sidebar,
       .filters,
       .top-actions,
-      .login-screen {
+      .login-screen,
+      .back-row .btn {
         display: none !important;
       }
 
@@ -703,20 +740,14 @@
 </head>
 
 <body>
-  <!-- LOGIN -->
   <div id="loginScreen" class="login-screen">
     <div class="login-brand">
       <div>
         <span class="brand-badge">Seller Em Foco - Relatórios</span>
         <h1>Gestão inteligente de campanhas em um painel simples.</h1>
-        <p>
-          Acompanhe empresas, campanhas ativas, métricas de performance, relatórios e logs de acesso em uma estrutura pensada para integração com MCP + IA.
-        </p>
+        <p>Acompanhe empresas, campanhas ativas, métricas de performance, relatórios e logs de acesso em uma estrutura pensada para integração com MCP + IA.</p>
       </div>
-
-      <p>
-        Protótipo HTML independente. Em produção, o login deve ser conectado a banco de dados, senha criptografada e permissões reais por usuário.
-      </p>
+      <p>Protótipo HTML independente. Em produção, o login deve ser conectado a banco de dados, senha criptografada e permissões reais por usuário.</p>
     </div>
 
     <div class="login-card-wrap">
@@ -750,7 +781,6 @@
     </div>
   </div>
 
-  <!-- APP -->
   <div id="app" class="app">
     <aside class="sidebar">
       <div class="logo">
@@ -759,8 +789,7 @@
       </div>
 
       <nav class="nav">
-        <a href="#dashboard" class="active">Dashboard <span>Feed</span></a>
-        <a href="#empresas" data-min-role="leader">Empresas <span>Gestão</span></a>
+        <a href="#dashboard" class="active" onclick="showDashboard()">Dashboard <span>Feed</span></a>
         <a href="#relatorios" data-min-role="admin">Relatórios <span>PDF/HTML</span></a>
         <a href="#usuarios" data-min-role="leader">Usuários <span>Acessos</span></a>
         <a href="#logs" data-min-role="master">Logs <span>Auditoria</span></a>
@@ -776,10 +805,8 @@
     <main class="main">
       <div class="topbar">
         <div>
-          <h1>Dashboard em Feed</h1>
-          <p>
-            Visualização por empresa, com filtro global de período e leitura rápida das campanhas ativas.
-          </p>
+          <h1 id="pageTitle">Dashboard em Feed</h1>
+          <p id="pageDescription">Visualização por empresa. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.</p>
         </div>
 
         <div class="top-actions">
@@ -802,39 +829,63 @@
         </div>
       </div>
 
-      <section class="grid stats">
-        <div class="stat">
-          <div class="label">Empresas visíveis</div>
-          <div class="value" id="totalCompanies">4</div>
-          <div class="hint">Conforme nível de acesso</div>
-        </div>
+      <section id="dashboardView">
+        <section class="grid stats">
+          <div class="stat">
+            <div class="label">Empresas visíveis</div>
+            <div class="value" id="totalCompanies">4</div>
+            <div class="hint">Conforme nível de acesso</div>
+          </div>
 
-        <div class="stat">
-          <div class="label">Campanhas ativas</div>
-          <div class="value" id="totalCampaigns">15</div>
-          <div class="hint">Somando empresas visíveis</div>
-        </div>
+          <div class="stat">
+            <div class="label">Campanhas ativas</div>
+            <div class="value" id="totalCampaigns">15</div>
+            <div class="hint">Somando empresas visíveis</div>
+          </div>
 
-        <div class="stat">
-          <div class="label">Gasto no período</div>
-          <div class="value" id="totalSpend">R$ 2.032,10</div>
-          <div class="hint">Campanhas com métricas disponíveis</div>
-        </div>
+          <div class="stat">
+            <div class="label">Gasto no período</div>
+            <div class="value" id="totalSpend">R$ 2.032,10</div>
+            <div class="hint">Campanhas com métricas disponíveis</div>
+          </div>
 
-        <div class="stat">
-          <div class="label">Cliques no período</div>
-          <div class="value" id="totalClicks">2.458</div>
-          <div class="hint">Clicks all</div>
+          <div class="stat">
+            <div class="label">Cliques no período</div>
+            <div class="value" id="totalClicks">2.458</div>
+            <div class="hint">Clicks all</div>
+          </div>
+        </section>
+
+        <section id="feed" class="feed"></section>
+      </section>
+
+      <section id="campaignsView" class="campaigns-page">
+        <div class="section">
+          <div class="back-row">
+            <div>
+              <h2 id="campaignsTitle">Campanhas ativas</h2>
+              <p id="campaignsDescription">Lista de campanhas da empresa selecionada.</p>
+            </div>
+            <button class="btn btn-outline" onclick="showDashboard()">Voltar para o feed</button>
+          </div>
+
+          <div class="campaign-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Campanha</th>
+                  <th>Dashboard de resultados</th>
+                </tr>
+              </thead>
+              <tbody id="campaignsTable"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <section id="feed" class="feed"></section>
-
       <section class="section">
         <h2>Como ler as métricas</h2>
-        <p>
-          Esta área ajuda o usuário comum e o cliente a entenderem os indicadores principais sem precisar conhecer termos técnicos do Meta Ads.
-        </p>
+        <p>Esta área ajuda o usuário comum e o cliente a entenderem os indicadores principais sem precisar conhecer termos técnicos do Meta Ads.</p>
 
         <div class="explain-grid">
           <div class="explain">
@@ -883,7 +934,6 @@
               <th>Status</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td>Resumo executivo</td>
@@ -892,7 +942,6 @@
               <td>Kevin Nikolas</td>
               <td><span class="pill green">Disponível</span></td>
             </tr>
-
             <tr>
               <td>Performance de campanhas</td>
               <td>Direito De Ver</td>
@@ -908,58 +957,52 @@
         <h2>Usuários e permissões</h2>
         <p>Visão conceitual dos níveis de acesso definidos para a plataforma.</p>
 
-        <div class="permissions">
-          <table>
-            <thead>
-              <tr>
-                <th>Nível</th>
-                <th>Visualizar contas</th>
-                <th>Adicionar contas</th>
-                <th>Criar usuários</th>
-                <th>Gerar relatórios</th>
-                <th>Logs</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td><strong>Master</strong></td>
-                <td>Todas ou designadas</td>
-                <td>Sim</td>
-                <td>Todos os níveis</td>
-                <td>Sim</td>
-                <td>Completo</td>
-              </tr>
-
-              <tr>
-                <td><strong>Líder</strong></td>
-                <td>Designadas</td>
-                <td>Sim</td>
-                <td>Admins e usuários</td>
-                <td>Sim</td>
-                <td>Parcial</td>
-              </tr>
-
-              <tr>
-                <td><strong>Admin</strong></td>
-                <td>Designadas</td>
-                <td>Não</td>
-                <td>Não</td>
-                <td>Sim</td>
-                <td>Não</td>
-              </tr>
-
-              <tr>
-                <td><strong>Usuário</strong></td>
-                <td>Designadas</td>
-                <td>Não</td>
-                <td>Não</td>
-                <td>Não</td>
-                <td>Não</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nível</th>
+              <th>Visualizar contas</th>
+              <th>Adicionar contas</th>
+              <th>Criar usuários</th>
+              <th>Gerar relatórios</th>
+              <th>Logs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Master</strong></td>
+              <td>Todas ou designadas</td>
+              <td>Sim</td>
+              <td>Todos os níveis</td>
+              <td>Sim</td>
+              <td>Completo</td>
+            </tr>
+            <tr>
+              <td><strong>Líder</strong></td>
+              <td>Designadas</td>
+              <td>Sim</td>
+              <td>Admins e usuários</td>
+              <td>Sim</td>
+              <td>Parcial</td>
+            </tr>
+            <tr>
+              <td><strong>Admin</strong></td>
+              <td>Designadas</td>
+              <td>Não</td>
+              <td>Não</td>
+              <td>Sim</td>
+              <td>Não</td>
+            </tr>
+            <tr>
+              <td><strong>Usuário</strong></td>
+              <td>Designadas</td>
+              <td>Não</td>
+              <td>Não</td>
+              <td>Não</td>
+              <td>Não</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="logs" class="section" data-min-role="master">
@@ -975,7 +1018,6 @@
               <th>Empresa</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td>28/05/2026 15:42</td>
@@ -983,14 +1025,12 @@
               <td>Acessou o sistema</td>
               <td>Todas</td>
             </tr>
-
             <tr>
               <td>28/05/2026 15:45</td>
               <td>Kevin Nikolas</td>
               <td>Gerou relatório</td>
               <td>ParisViu</td>
             </tr>
-
             <tr>
               <td>28/05/2026 15:50</td>
               <td>MCP + IA</td>
@@ -1025,144 +1065,52 @@
         visibleTo: ["master", "leader", "admin", "user"],
         dailyBudget: 60,
         campaigns: [
-          {
-            name: "[ADD0014] [RECONHECIMENTO]",
-            objective: "Reconhecimento",
-            spend7: 4.86,
-            impressions7: 3297,
-            clicks7: 0
-          },
-          {
-            name: "[CAMPANHA0010] [NOVA PARISVIU] [RECONHECIMENTO]",
-            objective: "Reconhecimento",
-            spend7: 82.52,
-            impressions7: 57517,
-            clicks7: 69
-          },
-          {
-            name: "[CAMPANHA0009] [HISTORIA PARISVIU] [RECONHECIMENTO]",
-            objective: "Reconhecimento",
-            spend7: 82.66,
-            impressions7: 54345,
-            clicks7: 25
-          },
-          {
-            name: "[CAMPANHA0008] [ÓCUL PRTS NA HORA]",
-            objective: "Reconhecimento",
-            spend7: 82.81,
-            impressions7: 56986,
-            clicks7: 78
-          },
-          {
-            name: "[CAMP0007] [ÓCULOS 99,90] [MICRO]",
-            objective: "Reconhecimento",
-            spend7: 165.57,
-            impressions7: 109927,
-            clicks7: 161
-          }
+          { name: "[ADD0014] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 4.86, impressions7: 3297, clicks7: 0 },
+          { name: "[CAMPANHA0010] [NOVA PARISVIU] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 82.52, impressions7: 57517, clicks7: 69 },
+          { name: "[CAMPANHA0009] [HISTORIA PARISVIU] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 82.66, impressions7: 54345, clicks7: 25 },
+          { name: "[CAMPANHA0008] [ÓCUL PRTS NA HORA]", objective: "Reconhecimento", spend7: 82.81, impressions7: 56986, clicks7: 78 },
+          { name: "[CAMP0007] [ÓCULOS 99,90] [MICRO]", objective: "Reconhecimento", spend7: 165.57, impressions7: 109927, clicks7: 161 }
         ]
       },
-
       {
         name: "Liberty Med",
         account: "Liberty Med - Pré-paga",
         visibleTo: ["master", "leader", "admin"],
         dailyBudget: 35,
         campaigns: [
-          {
-            name: "[CAMPANHA0002] [ENGAJAMENTO] [VENDAS]",
-            objective: "Engajamento",
-            spend7: 41.81,
-            impressions7: 2423,
-            clicks7: 16
-          },
-          {
-            name: "[CAMPANHA001] [ENGAJAMENTO]",
-            objective: "Engajamento",
-            spend7: 165.48,
-            impressions7: 8790,
-            clicks7: 349
-          }
+          { name: "[CAMPANHA0002] [ENGAJAMENTO] [VENDAS]", objective: "Engajamento", spend7: 41.81, impressions7: 2423, clicks7: 16 },
+          { name: "[CAMPANHA001] [ENGAJAMENTO]", objective: "Engajamento", spend7: 165.48, impressions7: 8790, clicks7: 349 }
         ]
       },
-
       {
         name: "LEPARQUE",
         account: "LEPARQUĒ",
         visibleTo: ["master", "leader"],
         dailyBudget: 70,
         campaigns: [
-          {
-            name: "[CAMPANHA003] [ENGAJAMENTO] [CARROSSEL]",
-            objective: "Engajamento",
-            spend7: 63.31,
-            impressions7: 9701,
-            clicks7: 303
-          },
-          {
-            name: "[CAMPANHA0002] [RECONHECIMENTO] [VIDEO 02]",
-            objective: "Reconhecimento",
-            spend7: 266.12,
-            impressions7: 189972,
-            clicks7: 152
-          },
-          {
-            name: "[CAMPANHA0001] [RECONHECIMENTO] [VIDEO 01]",
-            objective: "Reconhecimento",
-            spend7: 134.15,
-            impressions7: 98764,
-            clicks7: 79
-          }
+          { name: "[CAMPANHA003] [ENGAJAMENTO] [CARROSSEL]", objective: "Engajamento", spend7: 63.31, impressions7: 9701, clicks7: 303 },
+          { name: "[CAMPANHA0002] [RECONHECIMENTO] [VIDEO 02]", objective: "Reconhecimento", spend7: 266.12, impressions7: 189972, clicks7: 152 },
+          { name: "[CAMPANHA0001] [RECONHECIMENTO] [VIDEO 01]", objective: "Reconhecimento", spend7: 134.15, impressions7: 98764, clicks7: 79 }
         ]
       },
-
       {
         name: "Direito De Ver",
         account: "Direito de Ver - Pré-Paga",
         visibleTo: ["master"],
         dailyBudget: 120,
         campaigns: [
-          {
-            name: "[CAMPANHA0013] [JÁ OUVIU FALAR NO IDDV] VÍDEO",
-            objective: "Reconhecimento",
-            spend7: 220.94,
-            impressions7: 128922,
-            clicks7: 261
-          },
-          {
-            name: "[CAMPAN00012] [O QUE É O IDDV]",
-            objective: "Engajamento",
-            spend7: 125.47,
-            impressions7: 12010,
-            clicks7: 219
-          },
-          {
-            name: "[CAMPAMHA004] [RECONHECIMENTO] [VOUCHERS] [FEED]",
-            objective: "Reconhecimento",
-            spend7: null,
-            impressions7: null,
-            clicks7: null
-          },
-          {
-            name: "[CAMPANHA0003] [RECONHECIMENTO] [NUPORANGA]",
-            objective: "Reconhecimento",
-            spend7: 210.08,
-            impressions7: 63347,
-            clicks7: 362
-          },
-          {
-            name: "[CAMPANHA0002] [CONVERSÃO] [ENGAJAMNETO]",
-            objective: "Engajamento",
-            spend7: 386.32,
-            impressions7: 25412,
-            clicks7: 384
-          }
+          { name: "[CAMPANHA0013] [JÁ OUVIU FALAR NO IDDV] VÍDEO", objective: "Reconhecimento", spend7: 220.94, impressions7: 128922, clicks7: 261 },
+          { name: "[CAMPAN00012] [O QUE É O IDDV]", objective: "Engajamento", spend7: 125.47, impressions7: 12010, clicks7: 219 },
+          { name: "[CAMPAMHA004] [RECONHECIMENTO] [VOUCHERS] [FEED]", objective: "Reconhecimento", spend7: null, impressions7: null, clicks7: null },
+          { name: "[CAMPANHA0003] [RECONHECIMENTO] [NUPORANGA]", objective: "Reconhecimento", spend7: 210.08, impressions7: 63347, clicks7: 362 },
+          { name: "[CAMPANHA0002] [CONVERSÃO] [ENGAJAMNETO]", objective: "Engajamento", spend7: 386.32, impressions7: 25412, clicks7: 384 }
         ]
       }
     ];
 
     let currentRole = "master";
     let currentPeriod = 7;
+    let selectedCompanyName = null;
 
     function brl(value) {
       if (value === null || value === undefined || Number.isNaN(value)) {
@@ -1218,13 +1166,21 @@
       const ctr = impressions ? (clicks / impressions) * 100 : null;
       const cpc = clicks ? spend / clicks : null;
 
-      return {
-        spend,
-        impressions,
-        clicks,
-        ctr,
-        cpc
-      };
+      return { spend, impressions, clicks, ctr, cpc };
+    }
+
+    function getCompanySummary(company) {
+      const validCampaigns = company.campaigns
+        .map(campaign => ({ ...campaign, values: campaignValues(campaign) }))
+        .filter(campaign => campaign.values.spend !== null);
+
+      const spend = validCampaigns.reduce((sum, campaign) => sum + campaign.values.spend, 0);
+      const impressions = validCampaigns.reduce((sum, campaign) => sum + campaign.values.impressions, 0);
+      const clicks = validCampaigns.reduce((sum, campaign) => sum + campaign.values.clicks, 0);
+      const ctr = impressions ? (clicks / impressions) * 100 : null;
+      const cpc = clicks ? spend / clicks : null;
+
+      return { spend, impressions, clicks, ctr, cpc };
     }
 
     function renderFeed() {
@@ -1238,26 +1194,15 @@
       let totalClicks = 0;
 
       companies.forEach((company, index) => {
-        const validCampaigns = company.campaigns
-          .map(campaign => ({
-            ...campaign,
-            values: campaignValues(campaign)
-          }))
-          .filter(campaign => campaign.values.spend !== null);
-
-        const spend = validCampaigns.reduce((sum, campaign) => sum + campaign.values.spend, 0);
-        const impressions = validCampaigns.reduce((sum, campaign) => sum + campaign.values.impressions, 0);
-        const clicks = validCampaigns.reduce((sum, campaign) => sum + campaign.values.clicks, 0);
-
-        const ctr = impressions ? (clicks / impressions) * 100 : null;
-        const cpc = clicks ? spend / clicks : null;
+        const summary = getCompanySummary(company);
 
         totalCampaigns += company.campaigns.length;
-        totalSpend += spend;
-        totalClicks += clicks;
+        totalSpend += summary.spend;
+        totalClicks += summary.clicks;
 
         const block = document.createElement("article");
         block.className = "company-block";
+        block.onclick = () => showCampaigns(company.name);
 
         block.innerHTML = `
           <div class="company-head">
@@ -1289,63 +1234,28 @@
 
             <div class="mini">
               <span>Gasto</span>
-              <strong>${brl(spend)}</strong>
+              <strong>${brl(summary.spend)}</strong>
             </div>
 
             <div class="mini">
               <span>Impressões</span>
-              <strong>${num(impressions)}</strong>
+              <strong>${num(summary.impressions)}</strong>
             </div>
 
             <div class="mini">
               <span>Cliques</span>
-              <strong>${num(clicks)}</strong>
+              <strong>${num(summary.clicks)}</strong>
             </div>
 
             <div class="mini">
               <span>CTR / CPC</span>
-              <strong>${pct(ctr)} · ${brl(cpc)}</strong>
+              <strong>${pct(summary.ctr)} · ${brl(summary.cpc)}</strong>
             </div>
           </div>
 
-          <div class="campaigns">
-            ${company.campaigns.map(campaign => {
-              const values = campaignValues(campaign);
-
-              return `
-                <div class="campaign-card">
-                  <div>
-                    <div class="name">${campaign.name}</div>
-                    <div class="objective">${campaign.objective}</div>
-                  </div>
-
-                  <div class="metric">
-                    <small>Gasto</small>
-                    <strong>${brl(values.spend)}</strong>
-                  </div>
-
-                  <div class="metric">
-                    <small>Impressões</small>
-                    <strong>${num(values.impressions)}</strong>
-                  </div>
-
-                  <div class="metric">
-                    <small>Cliques</small>
-                    <strong>${num(values.clicks)}</strong>
-                  </div>
-
-                  <div class="metric">
-                    <small>CTR</small>
-                    <strong>${pct(values.ctr)}</strong>
-                  </div>
-
-                  <div class="metric">
-                    <small>CPC</small>
-                    <strong>${brl(values.cpc)}</strong>
-                  </div>
-                </div>
-              `;
-            }).join("")}
+          <div class="company-footer">
+            <p>As campanhas ficam em uma página separada para manter o feed limpo.</p>
+            <span class="link-campaigns">Ver campanhas ativas →</span>
           </div>
         `;
 
@@ -1361,6 +1271,88 @@
         currentRole === "master"
           ? "Todas"
           : companies.map(company => company.name).join(", ");
+    }
+
+    function showCampaigns(companyName) {
+      selectedCompanyName = companyName;
+
+      const company = getVisibleCompanies().find(item => item.name === companyName);
+
+      if (!company) {
+        alert("Você não tem acesso a esta empresa.");
+        return;
+      }
+
+      document.getElementById("dashboardView").style.display = "none";
+      document.getElementById("campaignsView").classList.add("active");
+
+      document.getElementById("pageTitle").textContent = "Campanhas ativas";
+      document.getElementById("pageDescription").textContent = `Lista detalhada das campanhas da conta ${company.name}.`;
+
+      document.getElementById("campaignsTitle").textContent = `Campanhas ativas - ${company.name}`;
+      document.getElementById("campaignsDescription").textContent = `Conta de anúncios: ${company.account} · Período: últimos ${currentPeriod} dias`;
+
+      const tbody = document.getElementById("campaignsTable");
+      tbody.innerHTML = "";
+
+      company.campaigns.forEach(campaign => {
+        const values = campaignValues(campaign);
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>
+            <div class="campaign-name">
+              ${campaign.name}
+              <span class="campaign-objective">${campaign.objective}</span>
+            </div>
+          </td>
+
+          <td>
+            <div class="result-dashboard">
+              <div class="result-box">
+                <span>Gasto</span>
+                <strong>${brl(values.spend)}</strong>
+              </div>
+
+              <div class="result-box">
+                <span>Impressões</span>
+                <strong>${num(values.impressions)}</strong>
+              </div>
+
+              <div class="result-box">
+                <span>Cliques</span>
+                <strong>${num(values.clicks)}</strong>
+              </div>
+
+              <div class="result-box">
+                <span>CTR</span>
+                <strong>${pct(values.ctr)}</strong>
+              </div>
+
+              <div class="result-box">
+                <span>CPC</span>
+                <strong>${brl(values.cpc)}</strong>
+              </div>
+            </div>
+          </td>
+        `;
+
+        tbody.appendChild(row);
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showDashboard() {
+      selectedCompanyName = null;
+
+      document.getElementById("dashboardView").style.display = "block";
+      document.getElementById("campaignsView").classList.remove("active");
+
+      document.getElementById("pageTitle").textContent = "Dashboard em Feed";
+      document.getElementById("pageDescription").textContent = "Visualização por empresa. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.";
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function applyRoleVisibility() {
@@ -1393,6 +1385,7 @@
       document.getElementById("sideRole").textContent = roleName[currentRole];
 
       applyRoleVisibility();
+      showDashboard();
       renderFeed();
     }
 
@@ -1409,6 +1402,10 @@
       });
 
       renderFeed();
+
+      if (selectedCompanyName) {
+        showCampaigns(selectedCompanyName);
+      }
     }
   </script>
 </body>
