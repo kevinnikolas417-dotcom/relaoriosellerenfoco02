@@ -23,9 +23,7 @@
       --radius: 22px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -34,20 +32,9 @@
       color: var(--text);
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    select {
-      font-family: inherit;
-    }
-
-    .hidden {
-      display: none !important;
-    }
+    a { text-decoration: none; color: inherit; }
+    button, input, select { font-family: inherit; }
+    .hidden { display: none !important; }
 
     .login-screen {
       min-height: 100vh;
@@ -132,8 +119,7 @@
       color: #374151;
     }
 
-    input,
-    select {
+    input, select {
       width: 100%;
       height: 46px;
       border: 1px solid var(--border);
@@ -144,8 +130,7 @@
       outline: none;
     }
 
-    input:focus,
-    select:focus {
+    input:focus, select:focus {
       border-color: var(--orange);
       box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
     }
@@ -163,31 +148,11 @@
       gap: 8px;
     }
 
-    .btn-primary {
-      background: var(--orange);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--orange-dark);
-    }
-
-    .btn-dark {
-      background: var(--blue-dark);
-      color: #fff;
-    }
-
-    .btn-outline {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .login-button {
-      width: 100%;
-      margin-top: 22px;
-      height: 48px;
-    }
+    .btn-primary { background: var(--orange); color: #fff; }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-dark { background: var(--blue-dark); color: #fff; }
+    .btn-outline { background: #fff; color: var(--text); border: 1px solid var(--border); }
+    .login-button { width: 100%; margin-top: 22px; height: 48px; }
 
     .demo-users {
       margin-top: 22px;
@@ -200,10 +165,7 @@
       line-height: 1.6;
     }
 
-    .app {
-      display: none;
-      min-height: 100vh;
-    }
+    .app { display: none; min-height: 100vh; }
 
     .sidebar {
       position: fixed;
@@ -224,10 +186,7 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .logo strong {
-      font-size: 22px;
-      letter-spacing: -0.03em;
-    }
+    .logo strong { font-size: 22px; letter-spacing: -0.03em; }
 
     .logo strong::after {
       content: "";
@@ -239,16 +198,9 @@
       margin-top: 8px;
     }
 
-    .logo span {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.62);
-    }
+    .logo span { font-size: 13px; color: rgba(255, 255, 255, 0.62); }
 
-    .nav {
-      margin-top: 22px;
-      display: grid;
-      gap: 8px;
-    }
+    .nav { margin-top: 22px; display: grid; gap: 8px; }
 
     .nav a {
       color: rgba(255, 255, 255, 0.78);
@@ -261,8 +213,7 @@
       font-size: 14px;
     }
 
-    .nav a.active,
-    .nav a:hover {
+    .nav a.active, .nav a:hover {
       background: rgba(249, 115, 22, 0.18);
       color: #fff;
     }
@@ -277,10 +228,7 @@
       line-height: 1.5;
     }
 
-    .main {
-      margin-left: 280px;
-      padding: 28px;
-    }
+    .main { margin-left: 280px; padding: 28px; }
 
     .topbar {
       display: flex;
@@ -302,11 +250,7 @@
       line-height: 1.5;
     }
 
-    .top-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .top-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
     .filters {
       background: var(--panel);
@@ -322,34 +266,12 @@
       border: 1px solid var(--border);
     }
 
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .period-btn { background: #fff; color: var(--text); border: 1px solid var(--border); }
+    .period-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
 
-    .period-btn {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .period-btn.active {
-      background: var(--orange);
-      color: #fff;
-      border-color: var(--orange);
-    }
-
-    .grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .stats {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-bottom: 22px;
-    }
+    .grid { display: grid; gap: 18px; }
+    .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 22px; }
 
     .stat {
       background: var(--panel);
@@ -360,11 +282,7 @@
       border-top: 4px solid var(--orange);
     }
 
-    .stat .label {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }
+    .stat .label { color: var(--muted); font-size: 13px; font-weight: 800; }
 
     .stat .value {
       font-size: 28px;
@@ -374,16 +292,9 @@
       color: var(--blue-dark);
     }
 
-    .stat .hint {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
+    .stat .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
-    .feed {
-      display: grid;
-      gap: 22px;
-    }
+    .feed { display: grid; gap: 22px; }
 
     .company-block {
       background: var(--panel);
@@ -411,11 +322,7 @@
       background: linear-gradient(135deg, #ffffff, #f8fafc);
     }
 
-    .company-title {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .company-title { display: flex; align-items: center; gap: 14px; }
 
     .company-number {
       width: 44px;
@@ -429,17 +336,8 @@
       box-shadow: inset 0 -3px 0 rgba(249, 115, 22, 0.58);
     }
 
-    .company-head h2 {
-      margin: 0;
-      font-size: 24px;
-      letter-spacing: -0.03em;
-    }
-
-    .company-head p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .company-head h2 { margin: 0; font-size: 24px; letter-spacing: -0.03em; }
+    .company-head p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
 
     .pill {
       display: inline-flex;
@@ -452,15 +350,8 @@
       white-space: nowrap;
     }
 
-    .pill.green {
-      background: var(--success-bg);
-      color: var(--success-text);
-    }
-
-    .pill.blue {
-      background: var(--orange-soft);
-      color: #c2410c;
-    }
+    .pill.green { background: var(--success-bg); color: var(--success-text); }
+    .pill.blue { background: var(--orange-soft); color: #c2410c; }
 
     .company-summary {
       padding: 20px 24px;
@@ -500,13 +391,9 @@
       flex-wrap: wrap;
     }
 
-    .company-footer p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .company-footer p { margin: 0; color: var(--muted); font-size: 13px; }
 
-    .link-campaigns {
+    .link-campaigns, .campaign-link {
       color: #c2410c;
       background: var(--orange-soft);
       padding: 11px 14px;
@@ -516,6 +403,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
 
     .section {
@@ -527,25 +415,11 @@
       border: 1px solid var(--border);
     }
 
-    .section h2 {
-      margin: 0 0 8px;
-      font-size: 24px;
-      letter-spacing: -0.03em;
-    }
+    .section h2 { margin: 0 0 8px; font-size: 24px; letter-spacing: -0.03em; }
+    .section > p { color: var(--muted); margin: 0 0 18px; line-height: 1.5; }
 
-    .section > p {
-      color: var(--muted);
-      margin: 0 0 18px;
-      line-height: 1.5;
-    }
-
-    .campaigns-page {
-      display: none;
-    }
-
-    .campaigns-page.active {
-      display: block;
-    }
+    .campaigns-page, .single-campaign-page { display: none; }
+    .campaigns-page.active, .single-campaign-page.active { display: block; }
 
     .back-row {
       display: flex;
@@ -563,16 +437,9 @@
       background: #fff;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background: #fff;
-      overflow: hidden;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; overflow: hidden; }
 
-    th,
-    td {
+    th, td {
       padding: 16px 14px;
       border-bottom: 1px solid var(--border);
       text-align: left;
@@ -588,9 +455,7 @@
       font-weight: 950;
     }
 
-    tr:last-child td {
-      border-bottom: 0;
-    }
+    tr:last-child td { border-bottom: 0; }
 
     .campaign-name {
       font-weight: 950;
@@ -628,10 +493,140 @@
       margin-bottom: 5px;
     }
 
-    .result-box strong {
-      display: block;
+    .result-box strong { display: block; color: var(--blue-dark); font-size: 15px; }
+
+    .single-hero {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-dark-2));
+      color: #fff;
+      border-radius: 28px;
+      padding: 26px;
+      margin-bottom: 22px;
+      border-top: 5px solid var(--orange);
+      box-shadow: var(--shadow);
+    }
+
+    .single-hero h2 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+
+    .single-hero p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+
+    .chart-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
       color: var(--blue-dark);
-      font-size: 15px;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 80px;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bar-label {
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .bar-track {
+      height: 14px;
+      background: #eef2f7;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange), #fb923c);
+      border-radius: 999px;
+      width: 0%;
+      transition: width .3s ease;
+    }
+
+    .bar-value {
+      color: var(--blue-dark);
+      font-weight: 950;
+      text-align: right;
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      gap: 10px;
+      padding: 16px 0;
+    }
+
+    .donut {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: conic-gradient(var(--orange) 0deg, var(--orange) 90deg, #e5e7eb 90deg, #e5e7eb 360deg);
+      display: grid;
+      place-items: center;
+    }
+
+    .donut::after {
+      content: "";
+      width: 118px;
+      height: 118px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .donut-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-content strong {
+      display: block;
+      font-size: 26px;
+      color: var(--blue-dark);
+    }
+
+    .donut-content span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .insight-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background: var(--orange-soft);
+      color: #7c2d12;
+      border: 1px solid #fed7aa;
+      line-height: 1.5;
     }
 
     .explain-grid {
@@ -647,94 +642,32 @@
       padding: 17px;
     }
 
-    .explain strong {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 8px;
-      color: var(--blue-dark);
-    }
-
-    .explain p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 14px;
-    }
+    .explain strong { display: block; font-size: 16px; margin-bottom: 8px; color: var(--blue-dark); }
+    .explain p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 14px; }
 
     @media (max-width: 1100px) {
-      .login-screen {
-        grid-template-columns: 1fr;
-      }
-
-      .login-brand {
-        display: none;
-      }
-
-      .sidebar {
-        position: static;
-        width: 100%;
-      }
-
-      .main {
-        margin-left: 0;
-      }
-
-      .stats,
-      .company-summary,
-      .explain-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .login-screen { grid-template-columns: 1fr; }
+      .login-brand { display: none; }
+      .sidebar { position: static; width: 100%; }
+      .main { margin-left: 0; }
+      .stats, .company-summary, .explain-grid, .chart-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 650px) {
-      .main {
-        padding: 16px;
-      }
-
-      .topbar {
-        flex-direction: column;
-      }
-
-      .stats,
-      .company-summary,
-      .explain-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .company-head {
-        flex-direction: column;
-      }
-
-      .result-dashboard {
-        grid-template-columns: 1fr;
-        min-width: 0;
-      }
+      .main { padding: 16px; }
+      .topbar { flex-direction: column; }
+      .stats, .company-summary, .explain-grid, .chart-grid { grid-template-columns: 1fr; }
+      .company-head { flex-direction: column; }
+      .result-dashboard { grid-template-columns: 1fr; min-width: 0; }
+      .bar-row { grid-template-columns: 1fr; gap: 6px; }
+      .bar-value { text-align: left; }
     }
 
     @media print {
-      .sidebar,
-      .filters,
-      .top-actions,
-      .login-screen,
-      .back-row .btn {
-        display: none !important;
-      }
-
-      .app {
-        display: block !important;
-      }
-
-      .main {
-        margin: 0;
-        padding: 0;
-      }
-
-      .company-block,
-      .section,
-      .stat {
-        box-shadow: none;
-        break-inside: avoid;
-      }
+      .sidebar, .filters, .top-actions, .login-screen, .back-row .btn { display: none !important; }
+      .app { display: block !important; }
+      .main { margin: 0; padding: 0; }
+      .company-block, .section, .stat, .chart-card { box-shadow: none; break-inside: avoid; }
     }
   </style>
 </head>
@@ -875,11 +808,71 @@
                 <tr>
                   <th>Campanha</th>
                   <th>Dashboard de resultados</th>
+                  <th>Ação</th>
                 </tr>
               </thead>
               <tbody id="campaignsTable"></tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      <section id="singleCampaignView" class="single-campaign-page">
+        <div class="back-row">
+          <button class="btn btn-outline" onclick="showCampaigns(selectedCompanyName)">← Voltar para campanhas</button>
+          <button class="btn btn-outline" onclick="showDashboard()">Voltar para o feed</button>
+        </div>
+
+        <div class="single-hero">
+          <h2 id="singleCampaignTitle">Campanha</h2>
+          <p id="singleCampaignSubtitle">Dashboard individual da campanha selecionada.</p>
+        </div>
+
+        <section class="grid stats">
+          <div class="stat">
+            <div class="label">Gasto</div>
+            <div class="value" id="singleSpend">R$ 0,00</div>
+            <div class="hint">Investimento no período</div>
+          </div>
+          <div class="stat">
+            <div class="label">Impressões</div>
+            <div class="value" id="singleImpressions">0</div>
+            <div class="hint">Exibições do anúncio</div>
+          </div>
+          <div class="stat">
+            <div class="label">Cliques</div>
+            <div class="value" id="singleClicks">0</div>
+            <div class="hint">Clicks all</div>
+          </div>
+          <div class="stat">
+            <div class="label">CTR / CPC</div>
+            <div class="value" id="singleCtrCpc">0% · R$ 0,00</div>
+            <div class="hint">Taxa e custo por clique</div>
+          </div>
+        </section>
+
+        <section class="chart-grid">
+          <div class="chart-card">
+            <h3>Gráfico de resultados</h3>
+            <div id="barChart" class="bar-chart"></div>
+          </div>
+
+          <div class="chart-card">
+            <h3>Eficiência da campanha</h3>
+            <div class="donut-wrap">
+              <div id="donutChart" class="donut">
+                <div class="donut-content">
+                  <strong id="donutValue">0%</strong>
+                  <span>CTR</span>
+                </div>
+              </div>
+              <p id="donutText" style="margin:0;color:var(--muted);text-align:center;line-height:1.5;">Taxa de cliques no período.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="insight-box" id="singleInsight">
+          Diagnóstico da IA: campanha carregada com dados simulados.
         </div>
       </section>
 
@@ -892,27 +885,22 @@
             <strong>Gasto</strong>
             <p>É o valor consumido pela campanha no período selecionado. Ajuda a entender quanto foi investido para gerar alcance, cliques e resultados.</p>
           </div>
-
           <div class="explain">
             <strong>Impressões</strong>
             <p>É o número de vezes que o anúncio apareceu na tela. A mesma pessoa pode ver o anúncio mais de uma vez.</p>
           </div>
-
           <div class="explain">
             <strong>Cliques</strong>
             <p>É o total de cliques no anúncio. Pode incluir cliques em links, perfil, chamada para ação ou outros elementos.</p>
           </div>
-
           <div class="explain">
             <strong>CTR</strong>
             <p>Taxa de cliques. Fórmula: cliques ÷ impressões × 100. Quanto maior, mais o anúncio chamou atenção.</p>
           </div>
-
           <div class="explain">
             <strong>CPC</strong>
             <p>Custo por clique. Fórmula: gasto ÷ cliques. Quanto menor, mais barato foi gerar cada clique.</p>
           </div>
-
           <div class="explain">
             <strong>Objetivo</strong>
             <p>Reconhecimento busca visibilidade e lembrança da marca. Engajamento busca interações, cliques, mensagens ou ações no anúncio.</p>
@@ -923,32 +911,11 @@
       <section id="relatorios" class="section" data-min-role="admin">
         <h2>Relatórios</h2>
         <p>Área para gerar relatórios por empresa, período e usuário responsável.</p>
-
         <table>
-          <thead>
-            <tr>
-              <th>Relatório</th>
-              <th>Empresa</th>
-              <th>Período</th>
-              <th>Gerado por</th>
-              <th>Status</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Relatório</th><th>Empresa</th><th>Período</th><th>Gerado por</th><th>Status</th></tr></thead>
           <tbody>
-            <tr>
-              <td>Resumo executivo</td>
-              <td>ParisViu</td>
-              <td>7 dias</td>
-              <td>Kevin Nikolas</td>
-              <td><span class="pill green">Disponível</span></td>
-            </tr>
-            <tr>
-              <td>Performance de campanhas</td>
-              <td>Direito De Ver</td>
-              <td>30 dias</td>
-              <td>Admin interno</td>
-              <td><span class="pill blue">Gerado</span></td>
-            </tr>
+            <tr><td>Resumo executivo</td><td>ParisViu</td><td>7 dias</td><td>Kevin Nikolas</td><td><span class="pill green">Disponível</span></td></tr>
+            <tr><td>Performance de campanhas</td><td>Direito De Ver</td><td>30 dias</td><td>Admin interno</td><td><span class="pill blue">Gerado</span></td></tr>
           </tbody>
         </table>
       </section>
@@ -956,51 +923,13 @@
       <section id="usuarios" class="section" data-min-role="leader">
         <h2>Usuários e permissões</h2>
         <p>Visão conceitual dos níveis de acesso definidos para a plataforma.</p>
-
         <table>
-          <thead>
-            <tr>
-              <th>Nível</th>
-              <th>Visualizar contas</th>
-              <th>Adicionar contas</th>
-              <th>Criar usuários</th>
-              <th>Gerar relatórios</th>
-              <th>Logs</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Nível</th><th>Visualizar contas</th><th>Adicionar contas</th><th>Criar usuários</th><th>Gerar relatórios</th><th>Logs</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Master</strong></td>
-              <td>Todas ou designadas</td>
-              <td>Sim</td>
-              <td>Todos os níveis</td>
-              <td>Sim</td>
-              <td>Completo</td>
-            </tr>
-            <tr>
-              <td><strong>Líder</strong></td>
-              <td>Designadas</td>
-              <td>Sim</td>
-              <td>Admins e usuários</td>
-              <td>Sim</td>
-              <td>Parcial</td>
-            </tr>
-            <tr>
-              <td><strong>Admin</strong></td>
-              <td>Designadas</td>
-              <td>Não</td>
-              <td>Não</td>
-              <td>Sim</td>
-              <td>Não</td>
-            </tr>
-            <tr>
-              <td><strong>Usuário</strong></td>
-              <td>Designadas</td>
-              <td>Não</td>
-              <td>Não</td>
-              <td>Não</td>
-              <td>Não</td>
-            </tr>
+            <tr><td><strong>Master</strong></td><td>Todas ou designadas</td><td>Sim</td><td>Todos os níveis</td><td>Sim</td><td>Completo</td></tr>
+            <tr><td><strong>Líder</strong></td><td>Designadas</td><td>Sim</td><td>Admins e usuários</td><td>Sim</td><td>Parcial</td></tr>
+            <tr><td><strong>Admin</strong></td><td>Designadas</td><td>Não</td><td>Não</td><td>Sim</td><td>Não</td></tr>
+            <tr><td><strong>Usuário</strong></td><td>Designadas</td><td>Não</td><td>Não</td><td>Não</td><td>Não</td></tr>
           </tbody>
         </table>
       </section>
@@ -1008,35 +937,12 @@
       <section id="logs" class="section" data-min-role="master">
         <h2>Sistema de logs</h2>
         <p>Registro de acessos, relatórios gerados e alterações feitas na plataforma.</p>
-
         <table>
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Usuário</th>
-              <th>Ação</th>
-              <th>Empresa</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Data</th><th>Usuário</th><th>Ação</th><th>Empresa</th></tr></thead>
           <tbody>
-            <tr>
-              <td>28/05/2026 15:42</td>
-              <td>Kevin Nikolas</td>
-              <td>Acessou o sistema</td>
-              <td>Todas</td>
-            </tr>
-            <tr>
-              <td>28/05/2026 15:45</td>
-              <td>Kevin Nikolas</td>
-              <td>Gerou relatório</td>
-              <td>ParisViu</td>
-            </tr>
-            <tr>
-              <td>28/05/2026 15:50</td>
-              <td>MCP + IA</td>
-              <td>Sincronizou campanhas</td>
-              <td>Todas</td>
-            </tr>
+            <tr><td>28/05/2026 15:42</td><td>Kevin Nikolas</td><td>Acessou o sistema</td><td>Todas</td></tr>
+            <tr><td>28/05/2026 15:45</td><td>Kevin Nikolas</td><td>Gerou relatório</td><td>ParisViu</td></tr>
+            <tr><td>28/05/2026 15:50</td><td>MCP + IA</td><td>Sincronizou campanhas</td><td>Todas</td></tr>
           </tbody>
         </table>
       </section>
@@ -1044,19 +950,8 @@
   </div>
 
   <script>
-    const roleRank = {
-      user: 1,
-      admin: 2,
-      leader: 3,
-      master: 4
-    };
-
-    const roleName = {
-      user: "Usuário",
-      admin: "Admin",
-      leader: "Líder",
-      master: "Master"
-    };
+    const roleRank = { user: 1, admin: 2, leader: 3, master: 4 };
+    const roleName = { user: "Usuário", admin: "Admin", leader: "Líder", master: "Master" };
 
     const baseCompanies = [
       {
@@ -1111,31 +1006,20 @@
     let currentRole = "master";
     let currentPeriod = 7;
     let selectedCompanyName = null;
+    let selectedCampaignIndex = null;
 
     function brl(value) {
-      if (value === null || value === undefined || Number.isNaN(value)) {
-        return "Não disponível";
-      }
-
-      return value.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-      });
+      if (value === null || value === undefined || Number.isNaN(value)) return "Não disponível";
+      return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
     }
 
     function num(value) {
-      if (value === null || value === undefined || Number.isNaN(value)) {
-        return "Não disponível";
-      }
-
+      if (value === null || value === undefined || Number.isNaN(value)) return "Não disponível";
       return value.toLocaleString("pt-BR");
     }
 
     function pct(value) {
-      if (value === null || value === undefined || Number.isNaN(value)) {
-        return "Não disponível";
-      }
-
+      if (value === null || value === undefined || Number.isNaN(value)) return "Não disponível";
       return value.toFixed(2).replace(".", ",") + "%";
     }
 
@@ -1147,16 +1031,16 @@
 
     function calcMetric(campaign, metric) {
       const key = metric + "7";
-
-      if (campaign[key] === null || campaign[key] === undefined) {
-        return null;
-      }
-
+      if (campaign[key] === null || campaign[key] === undefined) return null;
       return Math.round(campaign[key] * periodMultiplier() * 100) / 100;
     }
 
     function getVisibleCompanies() {
       return baseCompanies.filter(company => company.visibleTo.includes(currentRole));
+    }
+
+    function getSelectedCompany() {
+      return getVisibleCompanies().find(company => company.name === selectedCompanyName);
     }
 
     function campaignValues(campaign) {
@@ -1165,7 +1049,6 @@
       const clicks = calcMetric(campaign, "clicks");
       const ctr = impressions ? (clicks / impressions) * 100 : null;
       const cpc = clicks ? spend / clicks : null;
-
       return { spend, impressions, clicks, ctr, cpc };
     }
 
@@ -1179,14 +1062,12 @@
       const clicks = validCampaigns.reduce((sum, campaign) => sum + campaign.values.clicks, 0);
       const ctr = impressions ? (clicks / impressions) * 100 : null;
       const cpc = clicks ? spend / clicks : null;
-
       return { spend, impressions, clicks, ctr, cpc };
     }
 
     function renderFeed() {
       const feed = document.getElementById("feed");
       const companies = getVisibleCompanies();
-
       feed.innerHTML = "";
 
       let totalCampaigns = 0;
@@ -1195,7 +1076,6 @@
 
       companies.forEach((company, index) => {
         const summary = getCompanySummary(company);
-
         totalCampaigns += company.campaigns.length;
         totalSpend += summary.spend;
         totalClicks += summary.clicks;
@@ -1208,13 +1088,11 @@
           <div class="company-head">
             <div class="company-title">
               <div class="company-number">${index + 1}</div>
-
               <div>
                 <h2>Bloco ${index + 1}: ${company.name}</h2>
                 <p>Conta de anúncios: ${company.account}</p>
               </div>
             </div>
-
             <div class="filter-group">
               <span class="pill green">Ativa</span>
               <span class="pill blue">${currentPeriod} dias</span>
@@ -1222,35 +1100,12 @@
           </div>
 
           <div class="company-summary">
-            <div class="mini">
-              <span>Campanhas ativas</span>
-              <strong>${company.campaigns.length}</strong>
-            </div>
-
-            <div class="mini">
-              <span>Orçamento diário</span>
-              <strong>${brl(company.dailyBudget)}</strong>
-            </div>
-
-            <div class="mini">
-              <span>Gasto</span>
-              <strong>${brl(summary.spend)}</strong>
-            </div>
-
-            <div class="mini">
-              <span>Impressões</span>
-              <strong>${num(summary.impressions)}</strong>
-            </div>
-
-            <div class="mini">
-              <span>Cliques</span>
-              <strong>${num(summary.clicks)}</strong>
-            </div>
-
-            <div class="mini">
-              <span>CTR / CPC</span>
-              <strong>${pct(summary.ctr)} · ${brl(summary.cpc)}</strong>
-            </div>
+            <div class="mini"><span>Campanhas ativas</span><strong>${company.campaigns.length}</strong></div>
+            <div class="mini"><span>Orçamento diário</span><strong>${brl(company.dailyBudget)}</strong></div>
+            <div class="mini"><span>Gasto</span><strong>${brl(summary.spend)}</strong></div>
+            <div class="mini"><span>Impressões</span><strong>${num(summary.impressions)}</strong></div>
+            <div class="mini"><span>Cliques</span><strong>${num(summary.clicks)}</strong></div>
+            <div class="mini"><span>CTR / CPC</span><strong>${pct(summary.ctr)} · ${brl(summary.cpc)}</strong></div>
           </div>
 
           <div class="company-footer">
@@ -1266,39 +1121,39 @@
       document.getElementById("totalCampaigns").textContent = totalCampaigns;
       document.getElementById("totalSpend").textContent = brl(totalSpend);
       document.getElementById("totalClicks").textContent = num(totalClicks);
+      document.getElementById("sideCompanies").textContent = currentRole === "master" ? "Todas" : companies.map(company => company.name).join(", ");
+    }
 
-      document.getElementById("sideCompanies").textContent =
-        currentRole === "master"
-          ? "Todas"
-          : companies.map(company => company.name).join(", ");
+    function hideMainViews() {
+      document.getElementById("dashboardView").style.display = "none";
+      document.getElementById("campaignsView").classList.remove("active");
+      document.getElementById("singleCampaignView").classList.remove("active");
     }
 
     function showCampaigns(companyName) {
       selectedCompanyName = companyName;
+      selectedCampaignIndex = null;
 
-      const company = getVisibleCompanies().find(item => item.name === companyName);
-
+      const company = getSelectedCompany();
       if (!company) {
         alert("Você não tem acesso a esta empresa.");
         return;
       }
 
-      document.getElementById("dashboardView").style.display = "none";
+      hideMainViews();
       document.getElementById("campaignsView").classList.add("active");
-
       document.getElementById("pageTitle").textContent = "Campanhas ativas";
-      document.getElementById("pageDescription").textContent = `Lista detalhada das campanhas da conta ${company.name}.`;
-
+      document.getElementById("pageDescription").textContent = `Lista detalhada das campanhas da conta ${company.name}. Clique em uma campanha para abrir o dashboard com gráficos.`;
       document.getElementById("campaignsTitle").textContent = `Campanhas ativas - ${company.name}`;
       document.getElementById("campaignsDescription").textContent = `Conta de anúncios: ${company.account} · Período: últimos ${currentPeriod} dias`;
 
       const tbody = document.getElementById("campaignsTable");
       tbody.innerHTML = "";
 
-      company.campaigns.forEach(campaign => {
+      company.campaigns.forEach((campaign, index) => {
         const values = campaignValues(campaign);
-
         const row = document.createElement("tr");
+
         row.innerHTML = `
           <td>
             <div class="campaign-name">
@@ -1306,59 +1161,125 @@
               <span class="campaign-objective">${campaign.objective}</span>
             </div>
           </td>
-
           <td>
             <div class="result-dashboard">
-              <div class="result-box">
-                <span>Gasto</span>
-                <strong>${brl(values.spend)}</strong>
-              </div>
-
-              <div class="result-box">
-                <span>Impressões</span>
-                <strong>${num(values.impressions)}</strong>
-              </div>
-
-              <div class="result-box">
-                <span>Cliques</span>
-                <strong>${num(values.clicks)}</strong>
-              </div>
-
-              <div class="result-box">
-                <span>CTR</span>
-                <strong>${pct(values.ctr)}</strong>
-              </div>
-
-              <div class="result-box">
-                <span>CPC</span>
-                <strong>${brl(values.cpc)}</strong>
-              </div>
+              <div class="result-box"><span>Gasto</span><strong>${brl(values.spend)}</strong></div>
+              <div class="result-box"><span>Impressões</span><strong>${num(values.impressions)}</strong></div>
+              <div class="result-box"><span>Cliques</span><strong>${num(values.clicks)}</strong></div>
+              <div class="result-box"><span>CTR</span><strong>${pct(values.ctr)}</strong></div>
+              <div class="result-box"><span>CPC</span><strong>${brl(values.cpc)}</strong></div>
             </div>
+          </td>
+          <td>
+            <span class="campaign-link" onclick="event.stopPropagation(); showSingleCampaign('${company.name}', ${index})">Abrir dashboard →</span>
           </td>
         `;
 
+        row.style.cursor = "pointer";
+        row.onclick = () => showSingleCampaign(company.name, index);
         tbody.appendChild(row);
       });
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    function showSingleCampaign(companyName, campaignIndex) {
+      selectedCompanyName = companyName;
+      selectedCampaignIndex = campaignIndex;
+
+      const company = getSelectedCompany();
+      if (!company || !company.campaigns[campaignIndex]) return;
+
+      const campaign = company.campaigns[campaignIndex];
+      const values = campaignValues(campaign);
+
+      hideMainViews();
+      document.getElementById("singleCampaignView").classList.add("active");
+      document.getElementById("pageTitle").textContent = "Dashboard da campanha";
+      document.getElementById("pageDescription").textContent = `Análise individual da campanha ${campaign.name}.`;
+
+      document.getElementById("singleCampaignTitle").textContent = campaign.name;
+      document.getElementById("singleCampaignSubtitle").textContent = `${company.name} · ${campaign.objective} · Últimos ${currentPeriod} dias`;
+
+      document.getElementById("singleSpend").textContent = brl(values.spend);
+      document.getElementById("singleImpressions").textContent = num(values.impressions);
+      document.getElementById("singleClicks").textContent = num(values.clicks);
+      document.getElementById("singleCtrCpc").textContent = `${pct(values.ctr)} · ${brl(values.cpc)}`;
+
+      renderBarChart(values);
+      renderDonut(values);
+      renderInsight(campaign, values);
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderBarChart(values) {
+      const chart = document.getElementById("barChart");
+      const normalized = [
+        { label: "Gasto", valueText: brl(values.spend), value: values.spend || 0 },
+        { label: "Impressões", valueText: num(values.impressions), value: values.impressions || 0 },
+        { label: "Cliques", valueText: num(values.clicks), value: values.clicks || 0 },
+        { label: "CTR", valueText: pct(values.ctr), value: values.ctr || 0 },
+        { label: "CPC", valueText: brl(values.cpc), value: values.cpc || 0 }
+      ];
+
+      const maxValue = Math.max(...normalized.map(item => item.value), 1);
+      chart.innerHTML = normalized.map(item => {
+        const width = Math.max(3, Math.min(100, (item.value / maxValue) * 100));
+        return `
+          <div class="bar-row">
+            <div class="bar-label">${item.label}</div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:${width}%"></div>
+            </div>
+            <div class="bar-value">${item.valueText}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderDonut(values) {
+      const ctr = values.ctr || 0;
+      const degrees = Math.min(360, Math.max(0, ctr * 90));
+      const donut = document.getElementById("donutChart");
+
+      donut.style.background = `conic-gradient(var(--orange) 0deg, var(--orange) ${degrees}deg, #e5e7eb ${degrees}deg, #e5e7eb 360deg)`;
+      document.getElementById("donutValue").textContent = pct(ctr);
+      document.getElementById("donutText").textContent = "Quanto maior o CTR, maior a proporção laranja no gráfico.";
+    }
+
+    function renderInsight(campaign, values) {
+      let insight = "Diagnóstico da IA: ";
+
+      if (values.spend === null) {
+        insight += "esta campanha está ativa, mas não retornou métricas no período selecionado. Vale verificar se ela começou a rodar recentemente ou se há limitação de dados.";
+      } else if ((values.ctr || 0) < 0.1 && (values.impressions || 0) > 10000) {
+        insight += "a campanha teve volume de impressões, mas CTR baixo. Recomendo revisar criativo, promessa e chamada para ação.";
+      } else if ((values.cpc || 0) <= 1.2 && (values.clicks || 0) > 50) {
+        insight += "a campanha apresenta bom custo por clique e boa geração de tráfego. Pode ser mantida e usada como referência para novos criativos.";
+      } else if ((values.clicks || 0) === 0) {
+        insight += "a campanha gerou impressões, mas não gerou cliques. Pode ser uma campanha focada em reconhecimento ou o criativo pode precisar de uma chamada mais direta.";
+      } else {
+        insight += "a campanha apresenta entrega consistente. A próxima análise deve comparar o objetivo da campanha com o custo por resultado desejado.";
+      }
+
+      document.getElementById("singleInsight").textContent = insight;
+    }
+
     function showDashboard() {
       selectedCompanyName = null;
+      selectedCampaignIndex = null;
 
+      hideMainViews();
       document.getElementById("dashboardView").style.display = "block";
-      document.getElementById("campaignsView").classList.remove("active");
-
       document.getElementById("pageTitle").textContent = "Dashboard em Feed";
       document.getElementById("pageDescription").textContent = "Visualização por empresa. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.";
-
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function applyRoleVisibility() {
       document.querySelectorAll("[data-min-role]").forEach(element => {
         const minRole = element.getAttribute("data-min-role");
-
         if (roleRank[currentRole] < roleRank[minRole]) {
           element.classList.add("hidden");
         } else {
@@ -1370,7 +1291,6 @@
     function login() {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value;
-
       currentRole = document.getElementById("role").value;
 
       if (!email || !password) {
@@ -1380,7 +1300,6 @@
 
       document.getElementById("loginScreen").style.display = "none";
       document.getElementById("app").style.display = "block";
-
       document.getElementById("sideUser").textContent = email;
       document.getElementById("sideRole").textContent = roleName[currentRole];
 
@@ -1403,7 +1322,9 @@
 
       renderFeed();
 
-      if (selectedCompanyName) {
+      if (selectedCompanyName && selectedCampaignIndex !== null) {
+        showSingleCampaign(selectedCompanyName, selectedCampaignIndex);
+      } else if (selectedCompanyName) {
         showCampaigns(selectedCompanyName);
       }
     }
