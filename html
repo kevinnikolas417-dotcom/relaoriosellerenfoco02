@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seller Em Foco - Relatórios</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --dark: #0f172a;
+      --primary: #2563eb;
+      --primary-soft: #dbeafe;
+      --green: #16a34a;
+      --yellow: #ca8a04;
+      --red: #dc2626;
+      --radius: 22px;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .login-screen {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .login-brand {
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 35%),
+        linear-gradient(135deg, #0f172a, #111827 45%, #1e3a8a);
+      color: #fff;
+      padding: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .login-brand h1 {
+      font-size: 48px;
+      line-height: 1.03;
+      margin: 0;
+      max-width: 600px;
+    }
+
+    .login-brand p {
+      color: rgba(255,255,255,0.72);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 620px;
+      margin-top: 22px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .login-card-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--card);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .login-card h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    .login-card p {
+      color: var(--muted);
+      margin: 0 0 26px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 15px 0 8px;
+      color: #374151;
+    }
+
+    input, select {
+      width: 100%;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0 14px;
+      font-size: 14px;
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    button, .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .btn-soft {
+      background: #eef2ff;
+      color: #1e3a8a;
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .login-button {
+      width: 100%;
+      margin-top: 22px;
+      height: 48px;
+    }
+
+    .demo-users {
+      margin-top: 22px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .app {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: 280px;
+      background: #0f172a;
+      color: #fff;
+      padding: 26px 20px;
+      overflow-y: auto;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0 8px 26px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo strong {
+      font-size: 22px;
+    }
+
+    .logo span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .nav {
+      margin-top: 22px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      padding: 13px 14px;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .nav a.active, .nav a:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    .user-panel {
+      margin-top: 28px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+    }
+
+    .main {
+      margin-left: 280px;
+      padding: 28px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .topbar h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+    }
+
+    .topbar p {
+      color: var(--muted);
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+
+    .filters {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .period-btn {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .period-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 22px;
+    }
+
+    .stat {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .stat .value {
+      font-size: 28px;
+      font-weight: 900;
+      margin-top: 7px;
+    }
+
+    .stat .hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .feed {
+      display: grid;
+      gap: 22px;
+    }
+
+    .company-block {
+      background: var(--card);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(229,231,235,0.8);
+    }
+
+    .company-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, #ffffff, #f8fafc);
+    }
+
+    .company-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .company-number {
+      width: 44px;
+      height: 44px;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .company-head h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .company-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill.green {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .pill.blue {
+      background: var(--primary-soft);
+      color: #1d4ed8;
+    }
+
+    .pill.yellow {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .company-summary {
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mini {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+    }
+
+    .mini span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .mini strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 18px;
+    }
+
+    .campaigns {
+      padding: 22px 24px 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .campaign-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1.7fr repeat(5, 0.7fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .campaign-card .name {
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .campaign-card .objective {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .metric strong {
+      font-size: 14px;
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-top: 22px;
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .section > p {
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.5;
+    }
+
+    .explain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .explain {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 20px;
+      padding: 17px;
+    }
+
+    .explain strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .explain p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .permissions {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: #f8fafc;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1100px) {
+      .login-screen {
+        grid-template-columns: 1fr;
+      }
+
+      .login-brand {
+        display: none;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+      }
+
+      .main {
+        margin-left: 0;
+      }
+
+      .stats, .company-summary, .explain-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .campaign-card {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .main {
+        padding: 16px;
+      }
+
+      .topbar {
+        flex-direction: column;
+      }
+
+      .stats, .company-summary, .explain-grid, .campaign-card {
+        grid-template-columns: 1fr;
+      }
+
+      .company-head {
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      .sidebar, .filters, .top-actions, .login-screen {
+        display: none !important;
+      }
+
+      .app {
+        display: block !important;
+      }
+
+      .main {
+        margin: 0;
+        padding: 0;
+      }
+
+      .company-block, .section, .stat {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-brand">
+      <div>
+        <span class="brand-badge">Seller Em Foco - Relatórios</span>
+        <h1>Gestão inteligente de campanhas em um painel simples.</h1>
+        <p>
+          Acompanhe empresas, campanhas ativas, métricas de performance, relatórios e logs de acesso em uma estrutura pensada para integração com MCP + IA.
+        </p>
+      </div>
+      <p>
+        Protótipo HTML independente. Em produção, o login deve ser conectado a banco de dados, senha criptografada e permissões reais por usuário.
+      </p>
+    </div>
+
+    <div class="login-card-wrap">
+      <div class="login-card">
+        <h2>Entrar no painel</h2>
+        <p>Acesse a plataforma para visualizar o feed de empresas e relatórios de campanhas.</p>
+
+        <label for="email">E-mail</label>
+        <input id="email" type="email" value="kevinnikolas417@gmail.com" />
+
+        <label for="password">Senha</label>
+        <input id="password" type="password" value="231119*" />
+
+        <label for="role">Simular nível de acesso</label>
+        <select id="role">
+          <option value="master">Master</option>
+          <option value="leader">Líder</option>
+          <option value="admin">Admin</option>
+          <option value="user">Usuário</option>
+        </select>
+
+        <button class="btn-primary login-button" onclick="login()">Entrar</button>
+
+        <div class="demo-users">
+          <strong>Acesso master inicial:</strong><br />
+          E-mail: kevinnikolas417@gmail.com<br />
+          Senha temporária: 231119*<br /><br />
+          No sistema real, a senha deve ser criptografada e trocada no primeiro acesso.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <strong>Seller Em Foco</strong>
+        <span>Relatórios de campanhas</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#dashboard" class="active">Dashboard <span>Feed</span></a>
+        <a href="#empresas" data-min-role="leader">Empresas <span>Gestão</span></a>
+        <a href="#relatorios" data-min-role="admin">Relatórios <span>PDF/HTML</span></a>
+        <a href="#usuarios" data-min-role="leader">Usuários <span>Acessos</span></a>
+        <a href="#logs" data-min-role="master">Logs <span>Auditoria</span></a>
+      </nav>
+
+      <div class="user-panel">
+        <strong id="sideUser">Kevin Nikolas</strong><br />
+        Perfil: <span id="sideRole">Master</span><br />
+        Empresas visíveis: <span id="sideCompanies">Todas</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Dashboard em Feed</h1>
+          <p>
+            Visualização por empresa, com filtro global de período e leitura rápida das campanhas ativas.
+          </p>
+        </div>
+        <div class="top-actions">
+          <button class="btn-outline" onclick="window.print()">Gerar relatório</button>
+          <button class="btn-dark" onclick="logout()">Sair</button>
+        </div>
+      </div>
+
+      <div class="filters">
+        <div class="filter-group">
+          <strong>Período de veiculação:</strong>
+          <button class="period-btn active" data-period="7" onclick="setPeriod(7)">7 dias</button>
+          <button class="period-btn" data-period="15" onclick="setPeriod(15)">15 dias</button>
+          <button class="period-btn" data-period="30" onclick="setPeriod(30)">30 dias</button>
+        </div>
+        <div class="filter-group">
+          <span class="pill blue">Última atualização MCP: hoje, 15:42</span>
+          <span class="pill green">Contas ativas</span>
+        </div>
+      </div>
+
+      <section class="grid stats">
+        <div class="stat">
+          <div class="label">Empresas visíveis</div>
+          <div class="value" id="totalCompanies">4</div>
+          <div class="hint">Conforme nível de acesso</div>
+        </div>
+        <div class="stat">
+          <div class="label">Campanhas ativas</div>
+          <div class="value" id="totalCampaigns">15</div>
+          <div class="hint">Somando empresas visíveis</div>
+        </div>
+        <div class="stat">
+          <div class="label">Gasto no período</div>
+          <div class="value" id="totalSpend">R$ 2.032,10</div>
+          <div class="hint">Campanhas com métricas disponíveis</div>
+        </div>
+        <div class="stat">
+          <div class="label">Cliques no período</div>
+          <div class="value" id="totalClicks">2.458</div>
+          <div class="hint">Clicks all</div>
+        </div>
+      </section>
+
+      <section id="feed" class="feed"></section>
+
+      <section class="section">
+        <h2>Como ler as métricas</h2>
+        <p>Esta área ajuda o usuário comum e o cliente a entenderem os indicadores principais sem precisar conhecer termos técnicos do Meta Ads.</p>
+
+        <div class="explain-grid">
+          <div class="explain">
+            <strong>Gasto</strong>
+            <p>É o valor consumido pela campanha no período selecionado. Ajuda a entender quanto foi investido para gerar alcance, cliques e resultados.</p>
+          </div>
+          <div class="explain">
+            <strong>Impressões</strong>
+            <p>É o número de vezes que o anúncio apareceu na tela. A mesma pessoa pode ver o anúncio mais de uma vez.</p>
+          </div>
+          <div class="explain">
+            <strong>Cliques</strong>
+            <p>É o total de cliques no anúncio. Pode incluir cliques em links, perfil, chamada para ação ou outros elementos.</p>
+          </div>
+          <div class="explain">
+            <strong>CTR</strong>
+            <p>Taxa de cliques. Fórmula: cliques ÷ impressões × 100. Quanto maior, mais o anúncio chamou atenção.</p>
+          </div>
+          <div class="explain">
+            <strong>CPC</strong>
+            <p>Custo por clique. Fórmula: gasto ÷ cliques. Quanto menor, mais barato foi gerar cada clique.</p>
+          </div>
+          <div class="explain">
+            <strong>Objetivo</strong>
+            <p>Reconhecimento busca visibilidade e lembrança da marca. Engajamento busca interações, cliques, mensagens ou ações no anúncio.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="relatorios" class="section" data-min-role="admin">
+        <h2>Relatórios</h2>
+        <p>Área para gerar relatórios por empresa, período e usuário responsável.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Relatório</th>
+              <th>Empresa</th>
+              <th>Período</th>
+              <th>Gerado por</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Resumo executivo</td>
+              <td>ParisViu</td>
+              <td>7 dias</td>
+              <td>Kevin Nikolas</td>
+              <td><span class="pill green">Disponível</span></td>
+            </tr>
+            <tr>
+              <td>Performance de campanhas</td>
+              <td>Direito De Ver</td>
+              <td>30 dias</td>
+              <td>Admin interno</td>
+              <td><span class="pill blue">Gerado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="usuarios" class="section" data-min-role="leader">
+        <h2>Usuários e permissões</h2>
+        <p>Visão conceitual dos níveis de acesso definidos para a plataforma.</p>
+
+        <div class="permissions">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>Visualizar contas</th>
+                <th>Adicionar contas</th>
+                <th>Criar usuários</th>
+                <th>Gerar relatórios</th>
+                <th>Logs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Master</strong></td>
+                <td>Todas ou designadas</td>
+                <td>Sim</td>
+                <td>Todos os níveis</td>
+                <td>Sim</td>
+                <td>Completo</td>
+              </tr>
+              <tr>
+                <td><strong>Líder</strong></td>
+                <td>Designadas</td>
+                <td>Sim</td>
+                <td>Admins e usuários</td>
+                <td>Sim</td>
+                <td>Parcial</td>
+              </tr>
+              <tr>
+                <td><strong>Admin</strong></td>
+                <td>Designadas</td>
+                <td>Não</td>
+                <td>Não</td>
+                <td>Sim</td>
+                <td>Não</td>
+              </tr>
+              <tr>
+                <td><strong>Usuário</strong></td>
+                <td>Designadas</td>
+                <td>Não</td>
+                <td>Não</td>
+                <td>Não</td>
+                <td>Não</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="logs" class="section" data-min-role="master">
+        <h2>Sistema de logs</h2>
+        <p>Registro de acessos, relatórios gerados e alterações feitas na plataforma.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Usuário</th>
+              <th>Ação</th>
+              <th>Empresa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>28/05/2026 15:42</td>
+              <td>Kevin Nikolas</td>
+              <td>Acessou o sistema</td>
+              <td>Todas</td>
+            </tr>
+            <tr>
+              <td>28/05/2026 15:45</td>
+              <td>Kevin Nikolas</td>
+              <td>Gerou relatório</td>
+              <td>ParisViu</td>
+            </tr>
+            <tr>
+              <td>28/05/2026 15:50</td>
+              <td>MCP + IA</td>
+              <td>Sincronizou campanhas</td>
+              <td>Todas</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const roleRank = {
+      user: 1,
+      admin: 2,
+      leader: 3,
+      master: 4
+    };
+
+    const roleName = {
+      user: "Usuário",
+      admin: "Admin",
+      leader: "Líder",
+      master: "Master"
+    };
+
+    const baseCompanies = [
+      {
+        name: "ParisViu",
+        account: "Paris Viu - Pré-Paga",
+        visibleTo: ["master", "leader", "admin", "user"],
+        dailyBudget: 60,
+        campaigns: [
+          { name: "[ADD0014] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 4.86, impressions7: 3297, clicks7: 0 },
+          { name: "[CAMPANHA0010] [NOVA PARISVIU] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 82.52, impressions7: 57517, clicks7: 69 },
+          { name: "[CAMPANHA0009] [HISTORIA PARISVIU] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 82.66, impressions7: 54345, clicks7: 25 },
+          { name: "[CAMPANHA0008] [ÓCUL PRTS NA HORA]", objective: "Reconhecimento", spend7: 82.81, impressions7: 56986, clicks7: 78 },
+          { name: "[CAMP0007] [ÓCULOS 99,90] [MICRO]", objective: "Reconhecimento", spend7: 165.57, impressions7: 109927, clicks7: 161 }
+        ]
+      },
+      {
+        name: "Liberty Med",
+        account: "Liberty Med - Pré-paga",
+        visibleTo: ["master", "leader", "admin"],
+        dailyBudget: 35,
+        campaigns: [
+          { name: "[CAMPANHA0002] [ENGAJAMENTO] [VENDAS]", objective: "Engajamento", spend7: 41.81, impressions7: 2423, clicks7: 16 },
+          { name: "[CAMPANHA001] [ENGAJAMENTO]", objective: "Engajamento", spend7: 165.48, impressions7: 8790, clicks7: 349 }
+        ]
+      },
+      {
+        name: "LEPARQUE",
+        account: "LEPARQUĒ",
+        visibleTo: ["master", "leader"],
+        dailyBudget: 70,
+        campaigns: [
+          { name: "[CAMPANHA003] [ENGAJAMENTO] [CARROSSEL]", objective: "Engajamento", spend7: 63.31, impressions7: 9701, clicks7: 303 },
+          { name: "[CAMPANHA0002] [RECONHECIMENTO] [VIDEO 02]", objective: "Reconhecimento", spend7: 266.12, impressions7: 189972, clicks7: 152 },
+          { name: "[CAMPANHA0001] [RECONHECIMENTO] [VIDEO 01]", objective: "Reconhecimento", spend7: 134.15, impressions7: 98764, clicks7: 79 }
+        ]
+      },
+      {
+        name: "Direito De Ver",
+        account: "Direito de Ver - Pré-Paga",
+        visibleTo: ["master"],
+        dailyBudget: 120,
+        campaigns: [
+          { name: "[CAMPANHA0013] [JÁ OUVIU FALAR NO IDDV] VÍDEO", objective: "Reconhecimento", spend7: 220.94, impressions7: 128922, clicks7: 261 },
+          { name: "[CAMPAN00012] [O QUE É O IDDV]", objective: "Engajamento", spend7: 125.47, impressions7: 12010, clicks7: 219 },
+          { name: "[CAMPAMHA004] [RECONHECIMENTO] [VOUCHERS] [FEED]", objective: "Reconhecimento", spend7: null, impressions7: null, clicks7: null },
+          { name: "[CAMPANHA0003] [RECONHECIMENTO] [NUPORANGA]", objective: "Reconhecimento", spend7: 210.08, impressions7: 63347, clicks7: 362 },
+          { name: "[CAMPANHA0002] [CONVERSÃO] [ENGAJAMNETO]", objective: "Engajamento", spend7: 386.32, impressions7: 25412, clicks7: 384 }
+        ]
+      }
+    ];
+
+    let currentRole = "master";
+    let currentPeriod = 7;
+
+    function brl(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "Não disponível";
+      return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
+    function num(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "Não disponível";
+      return value.toLocaleString("pt-BR");
+    }
+
+    function pct(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "Não disponível";
+      return value.toFixed(2).replace(".", ",") + "%";
+    }
+
+    function periodMultiplier() {
+      if (currentPeriod === 15) return 2.15;
+      if (currentPeriod === 30) return 4.3;
+      return 1;
+    }
+
+    function calcMetric(campaign, metric) {
+      const key = metric + "7";
+      if (campaign[key] === null || campaign[key] === undefined) return null;
+      return Math.round((campaign[key] * periodMultiplier()) * 100) / 100;
+    }
+
+    function getVisibleCompanies() {
+      return baseCompanies.filter(company => company.visibleTo.includes(currentRole));
+    }
+
+    function campaignValues(campaign) {
+      const spend = calcMetric(campaign, "spend");
+      const impressions = calcMetric(campaign, "impressions");
+      const clicks = calcMetric(campaign, "clicks");
+      const ctr = impressions ? (clicks / impressions) * 100 : null;
+      const cpc = clicks ? spend / clicks : null;
+      return { spend, impressions, clicks, ctr, cpc };
+    }
+
+    function renderFeed() {
+      const feed = document.getElementById("feed");
+      const companies = getVisibleCompanies();
+      feed.innerHTML = "";
+
+      let totalCampaigns = 0;
+      let totalSpend = 0;
+      let totalClicks = 0;
+
+      companies.forEach((company, index) => {
+        const validCampaigns = company.campaigns
+          .map(c => ({ ...c, values: campaignValues(c) }))
+          .filter(c => c.values.spend !== null);
+
+        const spend = validCampaigns.reduce((s, c) => s + c.values.spend, 0);
+        const impressions = validCampaigns.reduce((s, c) => s + c.values.impressions, 0);
+        const clicks = validCampaigns.reduce((s, c) => s + c.values.clicks, 0);
+        const ctr = impressions ? (clicks / impressions) * 100 : null;
+        const cpc = clicks ? spend / clicks : null;
+
+        totalCampaigns += company.campaigns.length;
+        totalSpend += spend;
+        totalClicks += clicks;
+
+        const block = document.createElement("article");
+        block.className = "company-block";
+        block.innerHTML = `
+          <div class="company-head">
+            <div class="company-title">
+              <div class="company-number">${index + 1}</div>
+              <div>
+                <h2>Bloco ${index + 1}: ${company.name}</h2>
+                <p>Conta de anúncios: ${company.account}</p>
+              </div>
+            </div>
+            <div class="filter-group">
+              <span class="pill green">Ativa</span>
+              <span class="pill blue">${currentPeriod} dias</span>
+            </div>
+          </div>
+
+          <div class="company-summary">
+            <div class="mini"><span>Campanhas ativas</span><strong>${company.campaigns.length}</strong></div>
+            <div class="mini"><span>Orçamento diário</span><strong>${brl(company.dailyBudget)}</strong></div>
+            <div class="mini"><span>Gasto</span><strong>${brl(spend)}</strong></div>
+            <div class="mini"><span>Impressões</span><strong>${num(impressions)}</strong></div>
+            <div class="mini"><span>Cliques</span><strong>${num(clicks)}</strong></div>
+            <div class="mini"><span>CTR / CPC</span><strong>${pct(ctr)} · ${brl(cpc)}</strong></div>
+          </div>
+
+          <div class="campaigns">
+            ${company.campaigns.map(campaign => {
+              const v = campaignValues(campaign);
+              return `
+                <div class="campaign-card">
+                  <div>
+                    <div class="name">${campaign.name}</div>
+                    <div class="objective">${campaign.objective}</div>
+                  </div>
+                  <div class="metric"><small>Gasto</small><strong>${brl(v.spend)}</strong></div>
+                  <div class="metric"><small>Impressões</small><strong>${num(v.impressions)}</strong></div>
+                  <div class="metric"><small>Cliques</small><strong>${num(v.clicks)}</strong></div>
+                  <div class="metric"><small>CTR</small><strong>${pct(v.ctr)}</strong></div>
+                  <div class="metric"><small>CPC</small><strong>${brl(v.cpc)}</strong></div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        `;
+
+        feed.appendChild(block);
+      });
+
+      document.getElementById("totalCompanies").textContent = companies.length;
+      document.getElementById("totalCampaigns").textContent = totalCampaigns;
+      document.getElementById("totalSpend").textContent = brl(totalSpend);
+      document.getElementById("totalClicks").textContent = num(totalClicks);
+      document.getElementById("sideCompanies").textContent = currentRole === "master" ? "Todas" : companies.map(c => c.name).join(", ");
+    }
+
+    function applyRoleVisibility() {
+      document.querySelectorAll("[data-min-role]").forEach(el => {
+        const minRole = el.getAttribute("data-min-role");
+        if (roleRank[currentRole] < roleRank[minRole]) {
+          el.classList.add("hidden");
+        } else {
+          el.classList.remove("hidden");
+        }
+      });
+    }
+
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      currentRole = document.getElementById("role").value;
+
+      if (!email || !password) {
+        alert("Preencha e-mail e senha.");
+        return;
+      }
+
+      document.getElementById("loginScreen").style.display = "none";
+      document.getElementById("app").style.display = "block";
+      document.getElementById("sideUser").textContent = email;
+      document.getElementById("sideRole").textContent = roleName[currentRole];
+
+      applyRoleVisibility();
+      renderFeed();
+    }
+
+    function logout() {
+      document.getElementById("app").style.display = "none";
+      document.getElementById("loginScreen").style.display = "grid";
+    }
+
+    function setPeriod(days) {
+      currentPeriod = days;
+      document.querySelectorAll(".period-btn").forEach(btn => {
+        btn.classList.toggle("active", Number(btn.dataset.period) === days);
+      });
+      renderFeed();
+    }
+  </script>
+</body>
+</html>
