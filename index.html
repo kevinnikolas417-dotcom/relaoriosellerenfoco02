@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seller Em Foco - Relatórios</title>
+  <title>Seller Em Foco - Campanhas atuais</title>
 
   <style>
     :root {
@@ -352,6 +352,7 @@
 
     .pill.green { background: var(--success-bg); color: var(--success-text); }
     .pill.blue { background: var(--orange-soft); color: #c2410c; }
+    .pill.orange { background: #ffedd5; color: #9a3412; }
 
     .company-summary {
       padding: 20px 24px;
@@ -816,7 +817,7 @@
       <div class="topbar">
         <div>
           <h1 id="pageTitle">Dashboard em Feed</h1>
-          <p id="pageDescription">Visualização por empresa. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.</p>
+          <p id="pageDescription">Visualização por empresa com as campanhas atuais verificadas. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.</p>
         </div>
 
         <div class="top-actions">
@@ -827,10 +828,10 @@
 
       <div class="filters">
         <div class="filter-group">
-          <strong>Período de veiculação:</strong>
-          <button class="btn period-btn active" data-period="7" onclick="setPeriod(7)">7 dias</button>
-          <button class="btn period-btn" data-period="15" onclick="setPeriod(15)">15 dias</button>
-          <button class="btn period-btn" data-period="30" onclick="setPeriod(30)">30 dias</button>
+          <strong>Base de dados:</strong>
+          <button class="btn period-btn active" data-period="7" onclick="setPeriod(7)">Hoje</button>
+          <button class="btn period-btn" data-period="15" onclick="setPeriod(15)">Dados atuais</button>
+          <button class="btn period-btn" data-period="30" onclick="setPeriod(30)">Sem API real</button>
         </div>
 
         <div class="filter-group">
@@ -866,14 +867,14 @@
           </div>
 
           <div class="sync-item">
-            <span>Frequência</span>
-            <strong>A cada 1 hora</strong>
+            <span>Base</span>
+            <strong>Dados atuais inseridos no código</strong>
           </div>
         </div>
 
         <div class="sync-item">
           <span>Log da sincronização</span>
-          <strong id="syncLog">O sistema atualiza automaticamente a cada 1 hora. Também é possível atualizar manualmente antes de gerar relatórios.</strong>
+          <strong id="syncLog">Este arquivo está com os dados atuais inseridos diretamente no código. Para atualizar automaticamente no site real, é necessário API + banco + cron job.</strong>
         </div>
       </section>
 
@@ -1070,50 +1071,187 @@
 
     const baseCompanies = [
       {
+        name: "LEPARQUE",
+        account: "LEPARQUĒ",
+        visibleTo: ["master", "leader", "admin", "user"],
+        dailyBudget: 70,
+        statusLabel: "Ativa",
+        statusType: "green",
+        campaigns: [
+          {
+            name: "[ADD0013] [INAUGURAÇÃO]",
+            objective: "Reconhecimento",
+            spend7: 1.58,
+            impressions7: 2159,
+            clicks7: 2,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPANHA0012] [CAMPANHA VISÃO DO BEM] [GERAR LEAD]",
+            objective: "Engajamento",
+            spend7: 0.61,
+            impressions7: 49,
+            clicks7: 2,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPANHA007] [VÍDEO - CAMPANHA VISÃO DO BEM]",
+            objective: "Reconhecimento",
+            spend7: 62.32,
+            impressions7: 50002,
+            clicks7: 75,
+            status: "active",
+            statusText: "Ativa"
+          }
+        ]
+      },
+      {
         name: "ParisViu",
         account: "Paris Viu - Pré-Paga",
         visibleTo: ["master", "leader", "admin", "user"],
         dailyBudget: 60,
+        statusLabel: "Ativa",
+        statusType: "green",
         campaigns: [
-          { name: "[ADD0014] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 4.86, impressions7: 3297, clicks7: 0 },
-          { name: "[CAMPANHA0010] [NOVA PARISVIU] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 82.52, impressions7: 57517, clicks7: 69 },
-          { name: "[CAMPANHA0009] [HISTORIA PARISVIU] [RECONHECIMENTO]", objective: "Reconhecimento", spend7: 82.66, impressions7: 54345, clicks7: 25 },
-          { name: "[CAMPANHA0008] [ÓCUL PRTS NA HORA]", objective: "Reconhecimento", spend7: 82.81, impressions7: 56986, clicks7: 78 },
-          { name: "[CAMP0007] [ÓCULOS 99,90] [MICRO]", objective: "Reconhecimento", spend7: 165.57, impressions7: 109927, clicks7: 161 }
-        ]
-      },
-      {
-        name: "Liberty Med",
-        account: "Liberty Med - Pré-paga",
-        visibleTo: ["master", "leader", "admin"],
-        dailyBudget: 35,
-        campaigns: [
-          { name: "[CAMPANHA0002] [ENGAJAMENTO] [VENDAS]", objective: "Engajamento", spend7: 41.81, impressions7: 2423, clicks7: 16 },
-          { name: "[CAMPANHA001] [ENGAJAMENTO]", objective: "Engajamento", spend7: 165.48, impressions7: 8790, clicks7: 349 }
-        ]
-      },
-      {
-        name: "LEPARQUE",
-        account: "LEPARQUĒ",
-        visibleTo: ["master", "leader"],
-        dailyBudget: 70,
-        campaigns: [
-          { name: "[CAMPANHA003] [ENGAJAMENTO] [CARROSSEL]", objective: "Engajamento", spend7: 63.31, impressions7: 9701, clicks7: 303 },
-          { name: "[CAMPANHA0002] [RECONHECIMENTO] [VIDEO 02]", objective: "Reconhecimento", spend7: 266.12, impressions7: 189972, clicks7: 152 },
-          { name: "[CAMPANHA0001] [RECONHECIMENTO] [VIDEO 01]", objective: "Reconhecimento", spend7: 134.15, impressions7: 98764, clicks7: 79 }
+          {
+            name: "[ADD0014] [RECONHECIMENTO]",
+            objective: "Reconhecimento",
+            spend7: 16.06,
+            impressions7: 13221,
+            clicks7: 12,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPANHA0010] [NOVA PARISVIU] [RECONHECIMENTO]",
+            objective: "Reconhecimento",
+            spend7: 16.52,
+            impressions7: 13655,
+            clicks7: 17,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPANHA0009] [HISTORIA PARISVIU] [RECONHECIMENTO]",
+            objective: "Reconhecimento",
+            spend7: 8.68,
+            impressions7: 6510,
+            clicks7: 3,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPANHA0008] [ÓCUL PRTS NA HORA]",
+            objective: "Reconhecimento",
+            spend7: 15.31,
+            impressions7: 12931,
+            clicks7: 12,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMP0007] [ÓCULOS 99,90] [MICRO]",
+            objective: "Reconhecimento",
+            spend7: 23.55,
+            impressions7: 19916,
+            clicks7: 38,
+            status: "active",
+            statusText: "Ativa"
+          }
         ]
       },
       {
         name: "Direito De Ver",
         account: "Direito de Ver - Pré-Paga",
-        visibleTo: ["master"],
+        visibleTo: ["master", "leader", "admin", "user"],
         dailyBudget: 120,
+        statusLabel: "Ativa",
+        statusType: "green",
         campaigns: [
-          { name: "[CAMPANHA0013] [JÁ OUVIU FALAR NO IDDV] VÍDEO", objective: "Reconhecimento", spend7: 220.94, impressions7: 128922, clicks7: 261 },
-          { name: "[CAMPAN00012] [O QUE É O IDDV]", objective: "Engajamento", spend7: 125.47, impressions7: 12010, clicks7: 219 },
-          { name: "[CAMPAMHA004] [RECONHECIMENTO] [VOUCHERS] [FEED]", objective: "Reconhecimento", spend7: null, impressions7: null, clicks7: null },
-          { name: "[CAMPANHA0003] [RECONHECIMENTO] [NUPORANGA]", objective: "Reconhecimento", spend7: 210.08, impressions7: 63347, clicks7: 362 },
-          { name: "[CAMPANHA0002] [CONVERSÃO] [ENGAJAMNETO]", objective: "Engajamento", spend7: 386.32, impressions7: 25412, clicks7: 384 }
+          {
+            name: "[CAMPANHA0015] [RECONHECIMENTO] [NUPO]",
+            objective: "Reconhecimento",
+            spend7: 7.46,
+            impressions7: 2502,
+            clicks7: 22,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[ADD0014] [RECONHECIMENTO] [FEED]",
+            objective: "Reconhecimento",
+            spend7: 8.80,
+            impressions7: 5979,
+            clicks7: 10,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPANHA0013] [JÁ OUVIU FALAR NO IDDV] VÍDEO",
+            objective: "Reconhecimento",
+            spend7: 16.13,
+            impressions7: 11168,
+            clicks7: 18,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPAN00012] [O QUE É O IDDV]",
+            objective: "Engajamento",
+            spend7: 16.76,
+            impressions7: 1926,
+            clicks7: 27,
+            status: "active",
+            statusText: "Ativa"
+          },
+          {
+            name: "[CAMPAMHA004] [RECONHECIMENTO] [VOUCHERS] [FEED]",
+            objective: "Reconhecimento",
+            spend7: null,
+            impressions7: null,
+            clicks7: null,
+            status: "active",
+            statusText: "Ativa - métricas indisponíveis"
+          },
+          {
+            name: "[CAMPANHA0002] [CONVERSÃO] [ENGAJAMNETO]",
+            objective: "Engajamento",
+            spend7: 56.01,
+            impressions7: 3892,
+            clicks7: 57,
+            status: "active",
+            statusText: "Ativa"
+          }
+        ]
+      },
+      {
+        name: "Liberty Med",
+        account: "Liberty Med - Pré-paga",
+        visibleTo: ["master", "leader", "admin", "user"],
+        dailyBudget: 35,
+        statusLabel: "Bloqueada por limite de gasto",
+        statusType: "orange",
+        campaigns: [
+          {
+            name: "[CAMPANHA0002] [ENGAJAMENTO] [VENDAS]",
+            objective: "Engajamento",
+            spend7: 8.86,
+            impressions7: 543,
+            clicks7: 4,
+            status: "off",
+            statusText: "Off - limite de gasto atingido"
+          },
+          {
+            name: "[CAMPANHA001] [ENGAJAMENTO]",
+            objective: "Engajamento",
+            spend7: 6.20,
+            impressions7: 581,
+            clicks7: 17,
+            status: "off",
+            statusText: "Off - limite de gasto atingido"
+          }
         ]
       }
     ];
@@ -1175,10 +1313,10 @@
 
         const syncLog = document.getElementById("syncLog");
         if (syncLog) {
-          syncLog.textContent = `Sincronização ${trigger} concluída em ${formatDateTime(lastSyncDate)}. Dados de contas, campanhas e métricas foram atualizados no painel.`;
+          syncLog.textContent = `Atualização visual ${trigger} concluída em ${formatDateTime(lastSyncDate)}. Os dados reais precisam ser atualizados no código ou por API no servidor.`;
         }
 
-        updateSyncUI("Dados atualizados", false);
+        updateSyncUI("Dados atuais inseridos no código", false);
         renderFeed();
 
         if (selectedCompanyName && selectedCampaignIndex !== null) {
@@ -1224,8 +1362,6 @@
     }
 
     function periodMultiplier() {
-      if (currentPeriod === 15) return 2.15;
-      if (currentPeriod === 30) return 4.3;
       return 1;
     }
 
@@ -1294,8 +1430,8 @@
               </div>
             </div>
             <div class="filter-group">
-              <span class="pill green">Ativa</span>
-              <span class="pill blue">${currentPeriod} dias</span>
+              <span class="pill ${company.statusType === 'orange' ? 'orange' : 'green'}">${company.statusLabel || "Ativa"}</span>
+              <span class="pill blue">Dados de hoje</span>
             </div>
           </div>
 
@@ -1309,7 +1445,7 @@
           </div>
 
           <div class="company-footer">
-            <p>As campanhas ficam em uma página separada para manter o feed limpo.</p>
+            <p>Clique para acessar as campanhas atuais desta conta em formato de lista.</p>
             <span class="link-campaigns">Ver campanhas ativas →</span>
           </div>
         `;
@@ -1345,7 +1481,7 @@
       document.getElementById("pageTitle").textContent = "Campanhas ativas";
       document.getElementById("pageDescription").textContent = `Lista detalhada das campanhas da conta ${company.name}. Clique em uma campanha para abrir o dashboard com gráficos.`;
       document.getElementById("campaignsTitle").textContent = `Campanhas ativas - ${company.name}`;
-      document.getElementById("campaignsDescription").textContent = `Conta de anúncios: ${company.account} · Período: últimos ${currentPeriod} dias`;
+      document.getElementById("campaignsDescription").textContent = `Conta de anúncios: ${company.account} · Base: dados atuais verificados`;
 
       const tbody = document.getElementById("campaignsTable");
       tbody.innerHTML = "";
@@ -1399,7 +1535,7 @@
       document.getElementById("pageDescription").textContent = `Análise individual da campanha ${campaign.name}.`;
 
       document.getElementById("singleCampaignTitle").textContent = campaign.name;
-      document.getElementById("singleCampaignSubtitle").textContent = `${company.name} · ${campaign.objective} · Últimos ${currentPeriod} dias`;
+      document.getElementById("singleCampaignSubtitle").textContent = `${company.name} · ${campaign.objective} · Dados atuais`;
 
       document.getElementById("singleSpend").textContent = brl(values.spend);
       document.getElementById("singleImpressions").textContent = num(values.impressions);
@@ -1473,7 +1609,7 @@
       hideMainViews();
       document.getElementById("dashboardView").style.display = "block";
       document.getElementById("pageTitle").textContent = "Dashboard em Feed";
-      document.getElementById("pageDescription").textContent = "Visualização por empresa. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.";
+      document.getElementById("pageDescription").textContent = "Visualização por empresa com as campanhas atuais verificadas. Para ver as campanhas, clique no bloco da conta ou no link “Ver campanhas ativas”.";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
